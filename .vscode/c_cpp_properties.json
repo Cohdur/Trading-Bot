@@ -1,0 +1,42 @@
+{
+    "configurations": [
+        {
+            "name": "UCRT64",
+            "compilerPath": "C:/msys64/ucrt64/bin/g++.exe",
+
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:/msys64/ucrt64/include/qt6",
+                "C:/msys64/ucrt64/include/qt6/QtCore",
+                "C:/msys64/ucrt64/include/qt6/QtGui",
+                "C:/msys64/ucrt64/include/qt6/QtWidgets",
+                "C:/msys64/ucrt64/include/qt6/QtCharts",
+                "C:/msys64/ucrt64/include/qt6/QtNetwork",
+                "C:/msys64/ucrt64/include/qt6/QtOpenGL",
+                "C:/msys64/ucrt64/include/qt6/QtOpenGLWidgets",
+                "C:/msys64/ucrt64/share/qt6/mkspecs/win32-g++"
+            ],
+
+            "defines": [
+                "QT_CHARTS_LIB",
+                "QT_OPENGLWIDGETS_LIB",
+                "QT_OPENGL_LIB",
+                "QT_WIDGETS_LIB",
+                "QT_GUI_LIB",
+                "QT_NETWORK_LIB",
+                "QT_CORE_LIB",
+                "WIN32",
+                "WIN64",
+                "_WIN64",
+                "_ENABLE_EXTENDED_ALIGNED_STORAGE",
+                "MINGW_HAS_SECURE_API=1"
+            ],
+
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-gcc-x64"
+        }
+    ],
+
+    "version": 4
+}

@@ -1,0 +1,49 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "Build TradingBot",
+            "command": "C:/msys64/ucrt64/bin/g++.exe",
+            "args": [
+                "-g",
+
+                "${workspaceFolder}/src/app.cpp",
+                "${workspaceFolder}/src/newsAPI.cpp",
+                "${workspaceFolder}/src/Broker.cpp",
+                "${workspaceFolder}/src/Strategy.cpp",
+                "${workspaceFolder}/src/CSVParser.cpp",
+                "${workspaceFolder}/src/TradingChart.cpp",
+                "${workspaceFolder}/src/TreadLine.cpp",
+
+                "-I${workspaceFolder}/include",
+
+                "-IC:/msys64/ucrt64/include/qt6",
+                "-IC:/msys64/ucrt64/include/qt6/QtCore",
+                "-IC:/msys64/ucrt64/include/qt6/QtGui",
+                "-IC:/msys64/ucrt64/include/qt6/QtWidgets",
+                "-IC:/msys64/ucrt64/include/qt6/QtCharts",
+                "-IC:/msys64/ucrt64/include/qt6/QtNetwork",
+
+                "-LC:/msys64/ucrt64/lib",
+
+                "-lQt6Charts",
+                "-lQt6Widgets",
+                "-lQt6Gui",
+                "-lQt6Network",
+                "-lQt6Core",
+
+                "-o",
+                "${workspaceFolder}/TradingBot.exe"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": ["$gcc"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
