@@ -31,6 +31,12 @@ void TradingChart::addQuote(const Quote& quote)
 
     minPrice = std::min(minPrice, quote.askLow);
     maxPrice = std::max(maxPrice, quote.askHigh);
+    std::string day = quote.date.substr(3, 2);
+    if(day == "30" || day == "31" )
+    {
+        last24minPrice = std::min(last24minPrice, quote.askLow);
+        last24maxPrice = std::max(last24maxPrice, quote.askHigh);
+    }
 }
 
 void TradingChart::setupAxes()
@@ -42,16 +48,25 @@ void TradingChart::setupAxes()
 
     axisX->setFormat("MM/dd HH:mm");
 
+    constexpr qint64 oneDayMs = 24LL * 60 * 60 * 1000;
     axisX->setRange(
-        QDateTime::fromMSecsSinceEpoch(firstTimestamp),
+        //QDateTime::fromMSecsSinceEpoch(firstTimestamp), part of the original range setup
+        QDateTime::fromMSecsSinceEpoch(lastTimestamp - (oneDayMs / 24)),
         QDateTime::fromMSecsSinceEpoch(lastTimestamp)
     );
-
+/*
+// commented out the original start ranges 
     double padding = (maxPrice - minPrice) * 0.05;
 
     axisY->setRange(
         minPrice - padding,
         maxPrice + padding
+    );
+*/
+    double padding = (last24minPrice - last24minPrice) * 0.05;
+    axisY->setRange(
+        last24minPrice - padding,
+        last24maxPrice + padding
     );
 
     chart->addAxis(axisX, Qt::AlignBottom);

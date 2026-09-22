@@ -33,6 +33,8 @@ private:
     QChart* chart{new QChart()};
     double minPrice = std::numeric_limits<double>::max();
     double maxPrice = std::numeric_limits<double>::lowest();
+    double last24minPrice = std::numeric_limits<double>::max();
+    double last24maxPrice = std::numeric_limits<double>::lowest();
     qint64 firstTimestamp = 0;
     qint64 lastTimestamp = 0;
 
